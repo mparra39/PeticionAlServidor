@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PeticionAlServidor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,71 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="978-84-376-0494-7" borderStyle="roundedRect" placeholder="ISBN del libro a buscar" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBu-Yh-90o">
+                                <rect key="frame" x="163" y="139" width="275" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="Mgv-61-iAi"/>
+                                    <constraint firstAttribute="height" constant="30" id="T0a-6B-Z7f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="dkx-z0-nzr" eventType="editingDidEndOnExit" id="D5p-6y-qP3"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petición al servidor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x3-Tt-bUe">
+                                <rect key="frame" x="227" y="51" width="146" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8Cp-zG-EYg"/>
+                                    <constraint firstAttribute="width" constant="146" id="aLZ-Tx-wBL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ki6-Bo-XAp">
+                                <rect key="frame" x="277" y="210" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="4y0-Mu-H26"/>
+                                    <constraint firstAttribute="height" constant="30" id="eYl-eG-RQv"/>
+                                </constraints>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="limpiarISBN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ziG-Ak-bJz"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Resultado" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="rzN-Eq-XCD">
+                                <rect key="frame" x="163" y="268" width="275" height="210"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="5Cq-pT-INm"/>
+                                    <constraint firstAttribute="height" constant="210" id="kHV-6I-UvJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8x3-Tt-bUe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BaQ-rb-snw"/>
+                            <constraint firstItem="Ki6-Bo-XAp" firstAttribute="top" secondItem="RBu-Yh-90o" secondAttribute="bottom" constant="41" id="JtJ-wp-lZo"/>
+                            <constraint firstItem="8x3-Tt-bUe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="fVB-dV-mrw"/>
+                            <constraint firstItem="RBu-Yh-90o" firstAttribute="top" secondItem="8x3-Tt-bUe" secondAttribute="bottom" constant="67" id="hdA-Cr-MXv"/>
+                            <constraint firstItem="rzN-Eq-XCD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iGC-hq-x3O"/>
+                            <constraint firstItem="Ki6-Bo-XAp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oIo-QL-t5f"/>
+                            <constraint firstItem="RBu-Yh-90o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4o-wt-3ZP"/>
+                            <constraint firstItem="rzN-Eq-XCD" firstAttribute="top" secondItem="Ki6-Bo-XAp" secondAttribute="bottom" constant="28" id="uzr-cV-0rs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="isbn" destination="RBu-Yh-90o" id="eGh-VV-f2H"/>
+                        <outlet property="respuestaServidor" destination="rzN-Eq-XCD" id="4ef-qO-axD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="313"/>
         </scene>
     </scenes>
 </document>
