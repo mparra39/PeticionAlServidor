@@ -30,7 +30,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    //prueba
     func sincrono(){        //espera la respuesta del servidor antes de seguir trabajando
         
         if isConnectedToNetwork() == true { //si esta conectado a internet
